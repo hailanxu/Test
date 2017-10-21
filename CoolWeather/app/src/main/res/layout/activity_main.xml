@@ -2,23 +2,40 @@
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    android:background="#fff"
     xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:id="@+id/head"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#00b7ee" >
+     </RelativeLayout>
 
     <TextView
         android:id="@+id/label0"
         android:layout_width="wrap_content"
         android:layout_height="35dp"
+        android:layout_below="@id/head"
         android:gravity="center"
+        android:textColor="#333"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="25dp"
         android:text="Nickname:" />
 
     <EditText
         android:id="@+id/name"
-        android:layout_width="100dp"
+        android:layout_width="match_parent"
         android:layout_height="35dp"
         android:gravity="center"
+        android:layout_below="@id/head"
         android:layout_toRightOf="@id/label0"
-        android:layout_marginLeft="15dp"/>
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="5dp"
+        android:textColor="#333"
+        android:background="@drawable/input_bg"/>
 
     <TextView
         android:id="@+id/label1"
@@ -26,23 +43,35 @@
         android:layout_height="35dp"
         android:layout_below="@id/label0"
         android:gravity="center"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#333"
         android:text="Password:"/>
 
     <EditText
         android:id="@+id/pwd"
-        android:layout_width="100dp"
+        android:layout_width="match_parent"
         android:layout_height="35dp"
         android:layout_toRightOf="@id/label1"
         android:layout_below="@id/name"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
         android:gravity="center"
+        android:textColor="#333"
+        android:background="@drawable/input_bg"
         android:layout_marginLeft="15dp"/>
 
     <Button
         android:id="@+id/login"
-        android:layout_width="184dp"
+        android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_below="@id/label1"
         android:gravity="center"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="#00b7ee"
         android:layout_marginTop="15dp"
         android:text="Login"/>
 
