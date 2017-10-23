@@ -10,11 +10,17 @@ import android.preference.PreferenceManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupMenu;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +31,7 @@ import com.coolweather.android.gson.Weather;
 import com.coolweather.android.service.AutoUpdateService;
 import com.coolweather.android.util.HttpUtil;
 import com.coolweather.android.util.Utility;
+import com.coolweather.android.widget.PopMenu;
 
 import java.io.IOException;
 
@@ -67,6 +74,8 @@ public class WeatherActivity extends Activity {
     public DrawerLayout drawerLayout;
 
     private Button navButton;
+
+    private Button menuButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -134,7 +143,31 @@ public class WeatherActivity extends Activity {
             }
         });
 
+        menuButton = (Button) findViewById(R.id.menu_button);
+        menuButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMenu();
+            }
+        });
     }
+
+    private void showPopupMenu()
+    {
+        PopMenu mPopMenu = new PopMenu(WeatherActivity.this);
+        mPopMenu.clearMenus();
+        View.OnClickListener listener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(WeatherActivity.this,"Setting menu item",Toast.LENGTH_SHORT).show();
+            }
+        };
+        mPopMenu.addMenu(R.drawable.back,"Setting",listener);
+        mPopMenu.addMenu(R.drawable.back,"Setting",listener);
+        RelativeLayout bottomLayout = (RelativeLayout) findViewById(R.id.bottom_layout);
+        mPopMenu.showAtLocation(menuButton, Gravity.BOTTOM,0,-5);
+    }
+
 
     private void loadBingPic()
     {
